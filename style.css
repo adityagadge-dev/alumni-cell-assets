@@ -1,0 +1,645 @@
+/* ==========================================================
+   KJSSE ALUMNI CELL — LEADERSHIP REVEAL 2026–27
+   Email-safe stylesheet
+   ----------------------------------------------------------
+   NOTES FOR EMAIL CLIENTS
+   - No CSS custom properties (var()) — Outlook, older Gmail
+     and many mobile mail apps don't parse them. Colors are
+     written out directly instead, once for light mode and
+     once inside the prefers-color-scheme:dark block.
+   - Grid layouts are avoided; the HTML uses real <table>
+     markup for the 3-up member cards and the joint-head
+     rows, so they degrade gracefully instead of collapsing.
+   - Fonts stick to web-safe stacks (Georgia / Arial) because
+     @font-face and Google Fonts are stripped by most mail
+     clients (Outlook, Gmail app, Yahoo).
+   ==========================================================
+   ASSETS NEEDED (ask for these next — keep exact filenames
+   so you can drop them straight into /assets/ on GitHub and
+   nothing else needs to change):
+     assets/somaiya-logo.png     ~360x110px, transparent PNG
+     assets/somaiya-trust.png    ~200x110px, transparent PNG
+     assets/ac-banner-main.png   ~1000x260px wordmark, transparent PNG
+     assets/paper-grain.png      ~600x600px tileable noise/grain
+                                  texture, very low opacity, used
+                                  as a background-image on the
+                                  header block only
+     assets/dept-rule.png        ~4x40px tiny vertical dash/rule
+                                  (optional — used as a repeating
+                                  divider instead of a CSS border,
+                                  for clients that mangle borders)
+   ========================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Let Gmail / Apple Mail / Outlook.com know this template
+   actually supports both color schemes on purpose. */
+:root {
+  color-scheme: light dark;
+  supported-color-schemes: light dark;
+}
+
+body {
+  background-color: #efe8d8;
+  color: #211d18;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+img {
+  border: 0;
+  outline: none;
+  text-decoration: none;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+.preheader {
+  display: none !important;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  mso-hide: all;
+}
+
+/* ==========================================================
+   PAGE / OUTER WRAPPER
+========================================================== */
+
+.page-bg {
+  background-color: #efe8d8;
+  width: 100%;
+}
+
+.email-container {
+  width: 640px;
+  max-width: 640px;
+  background-color: #fbf7ee;
+  border: 1px solid #d9cfb6;
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.header-block {
+  background-color: #201c16;
+  background-image: url("assets/paper-grain.png");
+  background-repeat: repeat;
+  padding: 28px 32px;
+}
+
+.somaiya-logo img {
+  width: 178px;
+  height: auto;
+}
+
+.trust-logo img {
+  height: 58px;
+  width: auto;
+}
+
+.banner-cell {
+  padding: 40px 20px 34px;
+  text-align: center;
+}
+
+.banner-cell img {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.header-rule {
+  height: 3px;
+  background-color: #c1502e;
+  font-size: 1px;
+  line-height: 3px;
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero {
+  padding: 46px 40px 40px;
+  text-align: center;
+}
+
+.hero-label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c1502e;
+  padding-bottom: 18px;
+}
+
+.hero-year {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: #201c16;
+  line-height: 1;
+  padding-bottom: 14px;
+  letter-spacing: -1px;
+}
+
+.hero-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #c1502e;
+  text-transform: uppercase;
+  padding-bottom: 16px;
+}
+
+.hero-subtitle {
+  font-size: 22px;
+  color: #211d18;
+  line-height: 1.5;
+  padding-bottom: 4px;
+}
+
+.hero-subtitle strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 24px;
+  color: #201c16;
+}
+
+.hero-tagline {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #6b6154;
+  padding: 22px 0 24px;
+}
+
+.hero-description {
+  max-width: 480px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #4a4438;
+}
+
+/* ==========================================================
+   SECTION LABELS / TITLES (reused across all blocks)
+========================================================== */
+
+.section-label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c1502e;
+  padding-bottom: 10px;
+}
+
+.section-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #201c16;
+  padding-bottom: 34px;
+}
+
+.section-divider {
+  padding: 0 40px;
+}
+
+.section-divider-line {
+  height: 1px;
+  background-color: #d9cfb6;
+  font-size: 1px;
+  line-height: 1px;
+}
+
+/* ==========================================================
+   FACULTY / DEPARTMENT HEAD CARD
+   (dashed border, letterpress badge — matches the reference
+   "KRUPALU MEHTA" card look instead of glow/blur panels)
+========================================================== */
+
+.head-card {
+  border: 1.5px dashed #201c16;
+  background-color: #fbf7ee;
+  padding: 36px 30px;
+  text-align: center;
+}
+
+.head-badge {
+  display: inline-block;
+  background-color: #201c16;
+  color: #f2ece0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  margin-bottom: 20px;
+}
+
+.head-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #201c16;
+  padding-bottom: 10px;
+}
+
+.head-role {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c1502e;
+  padding-bottom: 8px;
+}
+
+.head-branch {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #6b6154;
+}
+
+/* ==========================================================
+   FEATURED CARD (General Secretary)
+========================================================== */
+
+.featured-card {
+  border: 2px solid #201c16;
+  background-color: #fbf7ee;
+  padding: 34px 28px;
+  text-align: center;
+}
+
+.featured-card .head-name {
+  font-size: 28px;
+}
+
+/* ==========================================================
+   MEMBER CARDS — table-based 3-up grid
+   Each <td class="member-cell"> holds one card; the media
+   query below stacks them full-width on narrow screens.
+========================================================== */
+
+.member-cell {
+  width: 33.33%;
+  padding: 8px;
+  vertical-align: top;
+}
+
+.member-card {
+  border: 1px solid #d9cfb6;
+  background-color: #fbf7ee;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.member-card .member-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #201c16;
+  padding-bottom: 12px;
+  line-height: 1.25;
+}
+
+.member-card .member-role {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #c1502e;
+  padding-bottom: 12px;
+}
+
+.member-card .member-branch {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: #6b6154;
+}
+
+/* ==========================================================
+   JOINT HEADS — table rows instead of flex
+========================================================== */
+
+.joint-heading {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c1502e;
+  padding: 40px 0 18px;
+}
+
+.joint-table {
+  width: 100%;
+  border-top: 1px solid #d9cfb6;
+}
+
+.joint-row td {
+  border-bottom: 1px solid #d9cfb6;
+  padding: 18px 6px;
+}
+
+.joint-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #201c16;
+  text-align: left;
+}
+
+.joint-branch {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: #6b6154;
+  text-align: right;
+}
+
+/* ==========================================================
+   GENERIC SECTION WRAPPER SPACING
+========================================================== */
+
+.section-wrap {
+  padding: 56px 40px 0;
+  text-align: center;
+}
+
+.committee-wrap {
+  padding: 56px 40px 0;
+  text-align: center;
+}
+
+/* ==========================================================
+   CLOSING
+========================================================== */
+
+.closing {
+  padding: 64px 40px 56px;
+  text-align: center;
+}
+
+.closing-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #201c16;
+  padding-bottom: 20px;
+  line-height: 1.3;
+}
+
+.closing-description {
+  max-width: 460px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #4a4438;
+}
+
+.closing-quote {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c1502e;
+  padding-top: 30px;
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.footer {
+  background-color: #201c16;
+  padding: 40px 32px 34px;
+  text-align: center;
+}
+
+.footer-banner img {
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto 26px;
+}
+
+.footer-links {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #d9cfb6;
+  padding-bottom: 20px;
+}
+
+.footer-links a {
+  color: #f2ece0;
+  text-decoration: none;
+}
+
+.footer-links .sep {
+  color: #6b6154;
+  padding: 0 8px;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: #b8ac91;
+  padding-bottom: 4px;
+}
+
+.footer-school {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #6b6154;
+}
+
+/* ==========================================================
+   DARK MODE
+   Gmail (webmail + app), Apple Mail and Outlook.com will
+   apply this automatically when the device is in dark mode.
+   Outlook desktop ignores it and just shows light mode,
+   which is fine — nothing here is unreadable either way.
+========================================================== */
+
+@media (prefers-color-scheme: dark) {
+  body,
+  .page-bg {
+    background-color: #14120e !important;
+  }
+
+  .email-container {
+    background-color: #1c1913 !important;
+    border-color: #35301f !important;
+  }
+
+  .hero-subtitle,
+  .hero-description,
+  .head-name,
+  .featured-card .head-name,
+  .section-title,
+  .closing-title,
+  .member-name,
+  .joint-name {
+    color: #f2ece0 !important;
+  }
+
+  .hero-year {
+    color: #f2ece0 !important;
+  }
+
+  .hero-description,
+  .closing-description {
+    color: #c9c0ac !important;
+  }
+
+  .head-card,
+  .featured-card,
+  .member-card {
+    background-color: #221e17 !important;
+    border-color: #4a4438 !important;
+  }
+
+  .head-badge {
+    background-color: #f2ece0 !important;
+    color: #201c16 !important;
+  }
+
+  .head-branch,
+  .member-branch,
+  .joint-branch,
+  .hero-tagline {
+    color: #a89f8f !important;
+  }
+
+  .section-divider-line,
+  .joint-table,
+  .joint-row td {
+    border-color: #35301f !important;
+  }
+}
+
+/* ==========================================================
+   RESPONSIVE — Android / iOS mail clients that honor
+   media queries (Apple Mail, Gmail app, Outlook app)
+========================================================== */
+
+@media only screen and (max-width: 660px) {
+  .email-container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .header-block {
+    padding: 22px 20px !important;
+  }
+
+  .somaiya-logo img {
+    width: 130px !important;
+  }
+
+  .trust-logo img {
+    height: 44px !important;
+  }
+
+  .hero,
+  .section-wrap,
+  .committee-wrap,
+  .closing {
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+
+  .hero {
+    padding-top: 36px !important;
+  }
+
+  .hero-year {
+    font-size: 46px !important;
+  }
+
+  .hero-title {
+    font-size: 20px !important;
+  }
+
+  .hero-subtitle {
+    font-size: 18px !important;
+  }
+
+  .hero-subtitle strong {
+    font-size: 19px !important;
+  }
+
+  .hero-description {
+    font-size: 15px !important;
+  }
+
+  .section-title {
+    font-size: 24px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .section-divider {
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+
+  .head-card,
+  .featured-card {
+    padding: 26px 18px !important;
+  }
+
+  .head-name,
+  .featured-card .head-name {
+    font-size: 24px !important;
+  }
+
+  /* stack the 3-up member cards */
+  .member-stack-cell {
+    display: block !important;
+    width: 100% !important;
+    padding: 8px 0 !important;
+  }
+
+  /* stack joint-head name / branch instead of side-by-side */
+  .joint-name,
+  .joint-branch {
+    display: block !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+
+  .joint-branch {
+    padding-top: 4px !important;
+  }
+
+  .footer {
+    padding: 32px 20px 28px !important;
+  }
+}
